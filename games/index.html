@@ -5,7 +5,6 @@
 <title>BaconGames – Games Library</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  /* BACKGROUND — Strong Purple + Deep Blue + Faster Animation */
   body {
     margin: 0;
     font-family: system-ui, sans-serif;
@@ -24,7 +23,6 @@
     100% { background-position: 0% 50%; }
   }
 
-  /* NAVBAR */
   nav {
     background: rgba(10, 10, 20, 0.45);
     backdrop-filter: blur(12px);
@@ -52,13 +50,11 @@
     transform: translateY(-2px);
   }
 
-  /* PAGE CONTENT */
   .content {
     padding: 2rem;
     flex: 1;
   }
 
-  /* SEARCH BAR */
   .search-container {
     display: flex;
     justify-content: flex-end;
@@ -76,7 +72,6 @@
     backdrop-filter: blur(6px);
   }
 
-  /* GAME GRID */
   .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -110,7 +105,6 @@
 </style>
 
 <script>
-  // SIMPLE SEARCH FUNCTION
   function searchGames() {
     const input = document.getElementById("searchInput").value.toLowerCase();
     const cards = document.getElementsByClassName("game-card");
@@ -131,26 +125,23 @@
   </div>
   <div class="links">
     <a href="https://binaro26.github.io/bacongames/">Home</a>
-    <a href="https://binaro26.github.io/bacongames/games">Games</a>
-    <a href="https://binaro26.github.io/bacongames/utills">Utilities</a>
-    <a href="https://binaro26.github.io/bacongames/ai">BaconAI</a>
-    <a href="https://binaro26.github.io/bacongames/browser">Browser</a>
-    <a href="https://binaro26.github.io/bacongames/about">About</a>
-    <a href="https://binaro26.github.io/bacongames/settings">Settings</a>
+    <a href="https://binaro26.github.io/bacongames/games/">Games</a>
+    <a href="https://binaro26.github.io/bacongames/utills/">Utilities</a>
+    <a href="https://binaro26.github.io/bacongames/ai/">BaconAI</a>
+    <a href="https://binaro26.github.io/bacongames/browser/">Browser</a>
+    <a href="https://binaro26.github.io/bacongames/about/">About</a>
+    <a href="https://binaro26.github.io/bacongames/settings/">Settings</a>
   </div>
 </nav>
 
 <div class="content">
 
-  <!-- SEARCH BAR -->
   <div class="search-container">
     <input id="searchInput" onkeyup="searchGames()" type="text" placeholder="Search Games...">
   </div>
 
-  <!-- GAMES GRID -->
   <div class="games-grid">
 
-    <!-- ONE EXAMPLE GAME -->
     <div class="game-card" data-title="1v1.lol">
       <img src="https://via.placeholder.com/150x100.png?text=Game+Thumbnail" alt="Game Thumbnail">
       <h3>1v1.lol</h3>
