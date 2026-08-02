@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BaconGames</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  /* BACKGROUND — Strong Purple + Deep Blue + Faster Animation */
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: linear-gradient(135deg, #2a0a5e, #120a8f, #3b0f7f, #0a1a6a);
+    background-size: 300% 300%;
+    animation: gradientShift 8s ease infinite;
+    color: #e5e5e5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+  }
 
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* NAVBAR */
+  nav {
+    background: rgba(10, 10, 20, 0.45);
+    backdrop-filter: blur(12px);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    animation: fadeIn 1.2s ease forwards;
+  }
+  nav .logo a {
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+    color: #fff;
+    text-decoration: none;
+  }
+  nav .links a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: #cfcfcf;
+    font-size: 0.95rem;
+    transition: 0.25s;
+  }
+  nav .links a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* EMPTY PAGE CONTENT AREA */
+  .content {
+    flex: 1;
+    padding: 2rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <a href="https://binaro26.github.io/BaconGames/">BaconGames</a>
+  </div>
+  <div class="links">
+    <a href="https://binaro26.github.io/BaconGames/">Home</a>
+    <a href="https://binaro26.github.io/BaconGames/games">Games</a>
+    <a href="https://binaro26.github.io/BaconGames/utills">Utilities</a>
+    <a href="https://binaro26.github.io/BaconGames/ai">BaconAI</a>
+    <a href="https://binaro26.github.io/BaconGames/browser">Browser</a>
+    <a href="https://binaro26.github.io/BaconGames/about">About</a>
+    <a href="https://binaro26.github.io/BaconGames/settings">Settings</a>
+  </div>
+</nav>
+
+<div class="content">
+  <!-- Empty page content goes here -->
+</div>
+
+</body>
+</html>
