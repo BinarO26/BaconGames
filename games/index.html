@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BaconGames</title>
+<title>BaconGames – Games Library</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   /* BACKGROUND — Strong Purple + Deep Blue + Faster Animation */
@@ -16,19 +16,12 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
   }
 
   @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   /* NAVBAR */
@@ -40,12 +33,10 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    animation: fadeIn 1.2s ease forwards;
   }
   nav .logo a {
     font-weight: 600;
     font-size: 1.25rem;
-    letter-spacing: 0.5px;
     color: #fff;
     text-decoration: none;
   }
@@ -61,12 +52,76 @@
     transform: translateY(-2px);
   }
 
-  /* EMPTY PAGE CONTENT AREA */
+  /* PAGE CONTENT */
   .content {
-    flex: 1;
     padding: 2rem;
+    flex: 1;
+  }
+
+  /* SEARCH BAR */
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+  }
+  .search-container input {
+    padding: 0.7rem 1rem;
+    width: 260px;
+    border-radius: 0.4rem;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 0.95rem;
+    backdrop-filter: blur(6px);
+  }
+
+  /* GAME GRID */
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .game-card {
+    background: rgba(255,255,255,0.08);
+    padding: 1rem;
+    border-radius: 0.6rem;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition: 0.25s;
+  }
+  .game-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.12);
+  }
+
+  .game-card img {
+    width: 100%;
+    border-radius: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .game-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #fff;
   }
 </style>
+
+<script>
+  // SIMPLE SEARCH FUNCTION
+  function searchGames() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const cards = document.getElementsByClassName("game-card");
+
+    for (let card of cards) {
+      const title = card.getAttribute("data-title").toLowerCase();
+      card.style.display = title.includes(input) ? "block" : "none";
+    }
+  }
+</script>
+
 </head>
 <body>
 
@@ -86,7 +141,23 @@
 </nav>
 
 <div class="content">
-  <!-- Empty page content goes here -->
+
+  <!-- SEARCH BAR -->
+  <div class="search-container">
+    <input id="searchInput" onkeyup="searchGames()" type="text" placeholder="Search Games...">
+  </div>
+
+  <!-- GAMES GRID -->
+  <div class="games-grid">
+
+    <!-- ONE EXAMPLE GAME -->
+    <div class="game-card" data-title="1v1.lol">
+      <img src="https://via.placeholder.com/150x100.png?text=Game+Thumbnail" alt="Game Thumbnail">
+      <h3>1v1.lol</h3>
+    </div>
+
+  </div>
+
 </div>
 
 </body>
