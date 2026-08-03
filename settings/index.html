@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings</title>
+<link rel="icon" type="image/png" href="../logo.png">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    background: linear-gradient(180deg, #000000, #0a1628);
+    color: #fff;
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow-x: hidden;
+    transition: background .3s ease, color .3s ease;
+  }
+
+  body.light {
+    background: linear-gradient(135deg, #ffffff, #e8edf5, #d0ddef);
+    background-size: 400% 400%;
+    color: #1e293b;
+  }
+
+  nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    gap: 4px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 999px;
+    padding: 6px 8px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: background .3s ease, border-color .3s ease;
+  }
+
+  body.light nav {
+    background: rgba(0,0,0,.06);
+    border-color: rgba(0,0,0,.1);
+  }
+
+  nav a {
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 999px;
+    transition: all .2s ease;
+    white-space: nowrap;
+  }
+  body.light nav a { color: rgba(0,0,0,.45); }
+
+  nav a:hover {
+    color: #fff;
+    background: rgba(255,255,255,.1);
+    transform: translateY(-1px);
+  }
+  body.light nav a:hover {
+    color: #1a1a2e;
+    background: rgba(0,0,0,.08);
+  }
+
+  nav a.active {
+    color: #000;
+    background: #fff;
+    font-weight: 600;
+  }
+  body.light nav a.active {
+    color: #fff;
+    background: #334155;
+  }
+
+  nav a.active:hover { transform: none; }
+
+  .settings {
+    max-width: 480px;
+    margin: 120px auto 100px;
+    padding: 0 20px;
+  }
+
+  .settings h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+
+  .setting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    transition: border-color .3s ease;
+  }
+  body.light .setting { border-color: rgba(0,0,0,.1); }
+
+  .setting:last-child { border-bottom: none; }
+
+  .setting-label {
+    font-size: 15px;
+    color: rgba(255,255,255,.7);
+  }
+  body.light .setting-label { color: rgba(0,0,0,.6); }
+
+  .toggle {
+    width: 44px;
+    height: 24px;
+    background: rgba(255,255,255,.15);
+    border-radius: 999px;
+    position: relative;
+    cursor: none;
+    transition: background .2s ease;
+  }
+
+  .toggle::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform .2s ease;
+  }
+
+  .toggle.on { background: rgba(255,255,255,.4); }
+  body.light .toggle.on { background: #334155; }
+  .toggle.on::after { transform: translateX(20px); }
+  body.light .toggle::after { background: #334155; }
+  body.light .toggle.on::after { background: #fff; }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,.25);
+    transition: color .3s ease;
+  }
+  body.light footer { color: rgba(0,0,0,.3); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://binaro26.github.io/bacongames/">Home</a>
+  <a href="https://binaro26.github.io/bacongames/games">Games</a>
+  <a href="https://binaro26.github.io/bacongames/info">Information</a>
+  <a href="https://binaro26.github.io/bacongames/settings" class="active">Settings</a>
+</nav>
+
+<div class="settings">
+  <h2>Settings</h2>
+</div>
+
+<footer>Created by Pausuu & Binaro26</footer>
+
+</body>
+</html>
