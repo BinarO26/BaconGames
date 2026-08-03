@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link rel="icon" type="image/png" href="logo.png">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    background: linear-gradient(180deg, #000000, #0a1628);
+    color: #fff;
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow-x: hidden;
+    transition: background .3s ease, color .3s ease;
+  }
+
+  body.light {
+    background: linear-gradient(135deg, #ffffff, #e8edf5, #d0ddef);
+    background-size: 400% 400%;
+    color: #1e293b;
+  }
+
+  nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-30px);
+    z-index: 100;
+    display: flex;
+    gap: 4px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 999px;
+    padding: 6px 8px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    opacity: 0;
+    animation: slideDown .6s .2s ease forwards;
+    transition: background .3s ease, border-color .3s ease;
+  }
+
+  body.light nav {
+    background: rgba(0,0,0,.06);
+    border-color: rgba(0,0,0,.1);
+  }
+
+  @keyframes slideDown {
+    to { transform: translateX(-50%) translateY(0); opacity: 1; }
+  }
+
+  nav a {
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 999px;
+    transition: all .2s ease;
+    white-space: nowrap;
+  }
+  body.light nav a { color: rgba(0,0,0,.45); }
+
+  nav a:hover {
+    color: #fff;
+    background: rgba(255,255,255,.1);
+    transform: translateY(-1px);
+  }
+  body.light nav a:hover {
+    color: #1a1a2e;
+    background: rgba(0,0,0,.08);
+  }
+
+  nav a.active {
+    color: #000;
+    background: #fff;
+    font-weight: 600;
+  }
+  body.light nav a.active {
+    color: #fff;
+    background: #334155;
+  }
+
+  nav a.active:hover { transform: none; }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 220px;
+    min-height: 100vh;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 7vw, 80px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp .6s .3s ease forwards;
+  }
+
+  .hero p {
+    font-size: clamp(12px, 2vw, 16px);
+    color: rgba(255,255,255,.45);
+    margin-top: 12px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp .6s .45s ease forwards;
+  }
+  body.light .hero p { color: rgba(0,0,0,.45); }
+
+  .buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp .6s .6s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .btn {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.6);
+    background: rgba(255,255,255,.04);
+    transition: all .2s ease;
+  }
+  body.light .btn {
+    border-color: rgba(0,0,0,.15);
+    color: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.04);
+  }
+
+  .btn:hover {
+    color: #fff;
+    background: rgba(255,255,255,.1);
+    transform: translateY(-1px);
+  }
+  body.light .btn:hover {
+    color: #1a1a2e;
+    background: rgba(0,0,0,.08);
+  }
+
+  .btn.primary {
+    color: #000;
+    background: #fff;
+    border-color: #fff;
+  }
+  body.light .btn.primary {
+    color: #fff;
+    background: #334155;
+    border-color: #334155;
+  }
+  .btn.primary:hover {
+    background: #e0e0e0;
+  }
+  body.light .btn.primary:hover {
+    background: #475569;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,.25);
+    transition: color .3s ease;
+    opacity: 0;
+    animation: fadeUp .6s .75s ease forwards;
+  }
+  body.light footer { color: rgba(0,0,0,.3); }
+
+  .cursor {
+    position: fixed;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: left .15s ease-out, top .15s ease-out, transform .2s ease;
+    mix-blend-mode: difference;
+  }
+  body.light .cursor { background: #334155; }
+</style>
+</head>
+<body>
+
+<div class="cursor"></div>
+
+<nav>
+  <a href="https://binaro26.github.io/bacongames/" class="active">Home</a>
+  <a href="https://binaro26.github.io/bacongames/games">Games</a>
+  <a href="https://binaro26.github.io/bacongames/ai">BaconAI</a>
+  <a href="https://binaro26.github.io/bacongames/info">Information</a>
+  <a href="https://binaro26.github.io/bacongames/settings">Settings</a>
+</nav>
+
+<footer>Created by Pausuu & Binaro26</footer>
+
+<div class="hero">
+  <h1>Bacon Games</h1>
+  <p>A Fast, Curated Portal for Playing HTML Games — Built to Be Simple, Safe, & Enjoyable</p>
+  <div class="buttons">
+    <a href="https://binaro26.github.io/bacongames/games" class="btn">Get Started</a>
+    <a href="https://binaro26.github.io/bacongames/info" class="btn">Information</a>
+    <a href="https://binaro26.github.io/bacongames/settings" class="btn">Settings</a>
+  </div>
+</div>
+
+<script>
+  const cursor = document.querySelector('.cursor');
+
+  function load(key, fallback) {
+    const v = localStorage.getItem('bacon_' + key);
+    return v !== null ? JSON.parse(v) : fallback;
+  }
+
+  const lightMode = load('lightMode', false);
+  const customCursor = load('customCursor', true);
+
+  document.body.classList.toggle('light', lightMode);
+  cursor.style.display = customCursor ? '' : 'none';
+  document.body.style.cursor = customCursor ? 'none' : 'auto';
+
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%,-50%) scale(1.8)');
+    el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%,-50%) scale(1)');
+  });
+</script>
+
+</body>
+</html>
